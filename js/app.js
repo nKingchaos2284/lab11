@@ -22,6 +22,14 @@ let maxClicksPermitted = 25; // the max user can  click.
   */
 // making sure all random products don't repeat
 
+
+
+
+
+
+
+
+
 const productArray = [ 'bag.jpg',
   'banana.jpg',
   'bathroom.jpg',
@@ -211,5 +219,10 @@ function handleProductClick(evt){
 function getRandomProductIndex(){
   return Math.floor(Math.random()* allProductsArray.length);
 
+  const config = {
+    type: 'polarArea',
+    data: data,
+  };
+
+
 }
-Footer

@@ -1,0 +1,78 @@
+*{
+  box-sizing: border-box;
+  
+}
+h1{
+  text-align: center;
+  color:black;
+  font-size: 60px;
+  font-family: 'Bungee Spice', cursive;
+  padding-top: 40px;
+  text-shadow: 15px;
+}
+
+
+h2{
+  font-size: 30px;
+  font-family: cursive;
+  font-weight: 600;
+  font-stretch: semi-expanded;
+  
+}
+
+
+header{
+  border: solid 10px;
+  height:150px;
+  background-color: olive;
+}
+#logo{
+  float:left;
+  width: auto;
+  height: 50px;
+  border-radius: 15%;
+  display: flex;
+
+ 
+}
+section img {
+  
+      float: left;
+      width: 33.33%;
+      padding: 15px;
+      height: 300px;
+     
+}
+
+section img:hover {
+border: 13px solid rgb(129, 5, 245);
+cursor: crosshair;
+    }
+
+
+main{
+  background-color: grey;
+  size: 888px;
+}
+
+
+footer{
+background-color: darkolivegreen;
+  height:88px
+
+}
+p{
+  text-align:center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  text-size-adjust: 16px;
+  padding-top: 350px;
+background-color: tan;
+text-indent: 50px;
+}
+
+
+oddButton {
+  position: center;
+  lighting-color: chartreuse;
+}
