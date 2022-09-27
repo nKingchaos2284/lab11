@@ -125,7 +125,7 @@ function renderResult(){
 function initialize (){
   console.log('in initialize()');
   // initial references to html
-  quackContainer = document.querySelector('section');
+  thingContainer = document.querySelector('section');
   resultButton = document.getElementById('resultButton');
   image1=document.querySelector('section img:first-child');
   image2=document.querySelector('section img:nth-child(2)');
@@ -156,7 +156,7 @@ function initialize (){
 
   //setting up event handlers
 
-  quckContainer.addEventListener('click',handleProductClick);
+  thingContainer.addEventListener('click',handleProductClick);
 
   //initial render
 
@@ -176,7 +176,7 @@ function handleProductClick(evt){
 
   // click product test //
 
-  if (evt.target === fantaseaContainer){
+  if (evt.target === thingContainer){
     alert('Please click on an image.');
   }
 
@@ -194,11 +194,11 @@ function handleProductClick(evt){
 
   if (click===maxClicksPermitted){
     //removing event listener
-    fantaseaContainer.removeEventListener ('click',handleProductClick);
+    thingContainer.removeEventListener ('click',handleProductClick);
     //enable the display of the result button
     resultButton.addEventListener('click',renderResult);
     resultButton.className= 'clicks-allowed';
-    fantaseaContainer.className = 'no-voting';
+    thingContainer.className = 'no-voting';
     renderChart();
   }else{
     render();
