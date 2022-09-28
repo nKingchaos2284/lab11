@@ -9,7 +9,7 @@ let image2; // 2nd image element
 let image3;// 3rd image product
 let allProductsArray;// array of product objects
 let click = 0; // # of user clicks
-let maxClicksPermitted = 25; // the max user can  click.
+let maxClicksAllowed = 25; // the max user can  click.
 
 
 
@@ -66,7 +66,7 @@ function Product(productName,imagePath){
 
 
 function render(){
-  console.log('makeItSoNumber2()');
+  console.log('makeItSoNumberTwo()');
 
   // finding previous values
 
@@ -110,14 +110,14 @@ function render(){
   allProductsArray[currentSet[2]].views++;
 }
 
-function renderResult(){
+function showResult(){
   console.log('in renderResult()');
-  let renderResults = document.querySelector('#renderResults');
+  let renderResult = document.getElementById('renderResult');
   for(let i = 0; i < allProductsArray.length; i++){
     let product = allProductsArray[i];
     let li = document.createElement('li');
     li.textContent= `${product.productName} had ${product.views} views and was clicked ${product.clicks} times.`;
-    renderResults.appendChild('li');
+    renderResult.appendChild(li);
   }
 }
 
@@ -129,15 +129,15 @@ function renderResult(){
 function initialize (){
   console.log('in initialize()');
   // initial references to html
-  thingContainer = document.querySelector('section');
-  oddButton = document.getElementById('oddButton');
+  thingContainer=document.querySelector('section');
+  oddButton=document.getElementById('oddButton');
   image1=document.querySelector('section img:first-child');
   image2=document.querySelector('section img:nth-child(2)');
   image3=document.querySelector('section img:nth-child(3)');
  
   // products go here
 
-  allProductsArray =[];
+  allProductsArray=[];
   allProductsArray.push(new Product('Bag','./img/bag.jpg'));
   allProductsArray.push(new Product('Banana','./img/banana.jpg'));
   allProductsArray.push(new Product('Bathroom','./img/bathroom.jpg'));
@@ -159,7 +159,7 @@ function initialize (){
   allProductsArray.push(new Product('Wine-Glass','./img/wine-glass.jpg'));
 
   //setting up event handlers
-  thingContainer.addEventListener('click',handleProductClick);
+  thingContainer.addEventListener('click', handleProductClick);
 
 
   //initial render
@@ -194,20 +194,41 @@ function handleProductClick(evt){
   }
   //checking to see if maximimum clicks have been reached(25)
 
-  if (click=== maxClicksPermitted){
+  if (click=== maxClicksAllowed){
  
-    
-    thingContainer.removeEventListener ('click',handleProductClick);
-    oddButton.addEventListener('click', renderResult);
+    thingContainer.removeEventListener('click',handleProductClick);
+    oddButton.addEventListener('click', showResult);
     oddButton.className= 'clicks-allowed';
-    thingContainer.className = 'no-voting';
+    // thingContainer.className = 'no-voting';
 
-    renderResult();
+    // showResult();
 
 
   }
    render();
 }   
+const config = {
+  type: 'doughnut',
+  data: data,
+};
+const data = {
+  labels: [
+    'Red',
+    'Blue',
+    'Yellow'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [300, 50, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};
+
 /**
  * Returns random index from allProductsArray
  *
