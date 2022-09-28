@@ -1,4 +1,5 @@
 *{
+  
   box-sizing: border-box;
   
 }
@@ -29,7 +30,7 @@ header{
 #logo{
   float:left;
   width: auto;
-  height: 50px;
+  height: 88px;
   border-radius: 15%;
   display: flex;
 
@@ -52,7 +53,7 @@ cursor: crosshair;
 
 main{
   background-color: grey;
-  size: 888px;
+  size: 1000px;
 }
 
 
@@ -72,7 +73,8 @@ text-indent: 50px;
 }
 
 
-oddButton {
-  position: center;
-  lighting-color: chartreuse;
-}
+#oddBotton {
+
+justify-content: center;
+
+} 

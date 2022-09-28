@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=" css/reset.css">
     <link rel = "stylesheet" href=" css/style.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.esm.min.js"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
     <title>Product votes!</title>
 </head>
@@ -21,7 +19,8 @@
      
 </header>
 <body onload="initialize()">
-  <main>
+ 
+  <main id="thingContainer">
     <h2> Vote Here For Our Next Products!</h2>
    
  <div>
@@ -31,7 +30,8 @@
 <img />
  </section>
  </div>
-<section id="paraone"> <p>Lorem ipsum dolor sit amet. Eos earum necessitatibus et quia accusantium hic sapiente praesentium ut omnis commodi? Eos ullam rerum ut culpa temporibus aut sunt autem qui sunt.
+<section id="paraone"> 
+    <p>Lorem ipsum dolor sit amet. Eos earum necessitatibus et quia accusantium hic sapiente praesentium ut omnis commodi? Eos ullam rerum ut culpa temporibus aut sunt autem qui sunt.
 
     Non nobis molestiae qui dolore Quis aut dolores veritatis ut quisquam consequatur. Non esse omnis ipsum quia qui doloremque obcaecati At consequuntur unde qui nihil dolores et voluptas autem id ratione nobis.
     
@@ -46,18 +46,17 @@ Eveniet aut, temporibus expedita iure consectetur rem incidunt iste illo ea hic 
 Esse nostrum tenetur sapiente laudantium deserunt. Perferendis asperiores, aperiam saepe explicabo illo fugiat architecto! Veritatis assumenda quo aut possimus, commodi accusamus, odit obcaecati iste, autem facere voluptates delectus qui corrupti.
 </p></section>
 
+<!-- <canvas id="myChart"></canvas> -->
 
 
-<section id="button">
-    <button> View Results </button>
+    <button id="oddButton"> View Results </button>
+<ul id="renderResult">
+
     <li>
 
-    </li>  </section>
-
+    </li> 
 </ul>
-<div>
-<canvas id="myChart"></canvas>
-</div>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.esm.min.js"></script> -->
 </main> 
 </body>
 <footer>  <script src = js/app.js></script>

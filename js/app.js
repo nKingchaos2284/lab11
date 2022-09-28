@@ -3,7 +3,7 @@
  *  Global Variables
  ******************************************************************/
 let thingContainer; //html elements will go here
-let resultButton;// will show the voting results
+let oddButton;// will show the voting results
 let image1; //  1st image element
 let image2; // 2nd image element
 let image3;// 3rd image product
@@ -110,18 +110,14 @@ function render(){
   allProductsArray[currentSet[2]].views++;
 }
 
-/**
- * Results of clicking
- */
-
 function renderResult(){
   console.log('in renderResult()');
-  let ul = document.querySelector('ul');
+  let renderResults = document.querySelector('#renderResults');
   for(let i = 0; i < allProductsArray.length; i++){
-    let product =allProductsArray[i];
+    let product = allProductsArray[i];
     let li = document.createElement('li');
     li.textContent= `${product.productName} had ${product.views} views and was clicked ${product.clicks} times.`;
-    ul.appendChild(li);
+    renderResults.appendChild('li');
   }
 }
 
@@ -134,7 +130,7 @@ function initialize (){
   console.log('in initialize()');
   // initial references to html
   thingContainer = document.querySelector('section');
-  resultButton = document.getElementById('resultButton');
+  oddButton = document.getElementById('oddButton');
   image1=document.querySelector('section img:first-child');
   image2=document.querySelector('section img:nth-child(2)');
   image3=document.querySelector('section img:nth-child(3)');
@@ -163,28 +159,26 @@ function initialize (){
   allProductsArray.push(new Product('Wine-Glass','./img/wine-glass.jpg'));
 
   //setting up event handlers
-
   thingContainer.addEventListener('click',handleProductClick);
+
 
   //initial render
 
   render();
 
+
 }
 
 
-//end initialize function
-/**
- * click handler for products
- *
- */
 
 function handleProductClick(evt){
   console.log('in handleProductClick()');
 
+
   // click product test //
 
   if (evt.target === thingContainer){
+    
     alert('Please click on an image.');
   }
 
@@ -200,29 +194,26 @@ function handleProductClick(evt){
   }
   //checking to see if maximimum clicks have been reached(25)
 
-  if (click===maxClicksPermitted){
-    //removing event listener
+  if (click=== maxClicksPermitted){
+ 
+    
     thingContainer.removeEventListener ('click',handleProductClick);
-    //enable the display of the result button
-    resultButton.addEventListener('click',renderResult);
-    resultButton.className= 'clicks-allowed';
+    oddButton.addEventListener('click', renderResult);
+    oddButton.className= 'clicks-allowed';
     thingContainer.className = 'no-voting';
-    renderChart();
-  }else{
-    render();
+
+    renderResult();
+
+
   }
-}
+   render();
+}   
 /**
  * Returns random index from allProductsArray
  *
  */
 function getRandomProductIndex(){
   return Math.floor(Math.random()* allProductsArray.length);
-
-  const config = {
-    type: 'polarArea',
-    data: data,
-  };
 
 
 }
