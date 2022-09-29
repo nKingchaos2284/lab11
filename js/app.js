@@ -207,27 +207,8 @@ function handleProductClick(evt){
   }
    render();
 }   
-const config = {
-  type: 'doughnut',
-  data: data,
-};
-const data = {
-  labels: [
-    'Red',
-    'Blue',
-    'Yellow'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-};
+
+
 
 /**
  * Returns random index from allProductsArray
@@ -238,3 +219,6 @@ function getRandomProductIndex(){
 
 
 }
+
+//create.variable to get element by id, element target is myChart,
+//then create chart, create variable == new Chart, var inside .this, pass in  variable that used for element by id //first and then the product array total

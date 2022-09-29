@@ -15,10 +15,11 @@ header {
 #logo {
   float: left;
   width: auto;
-  height: 88px;
-  border-radius: 15%;
+  height: 150px;
+  border-radius: 50%;
   display: flex;
-
+padding-left: 123px;
+background-color: rgb(0, 13, 128);
 }
 
 section img {
@@ -55,6 +56,11 @@ h2 {
 }
 
 
+h3 {
+  align-content: center;
+  color:#eaff00;
+}
+
 section img:hover {
   border: 15px solid rgb(255, 0, 0);
   cursor: crosshair;
@@ -62,33 +68,55 @@ section img:hover {
 
 main {
   background-color: grey;
-  size: 800px;
+  size: 750px;
   align-content: center;
 }
 
 .yolo {
   width: 15vw;
   height: 3.5vw;
-  color: white;
+  color: rgb(196, 22, 22);
   font-weight: 200;
   padding-top: 100px;
 }
 
-/* #oddButton { 
+.renderResult {
+  align-content: center;
+  font-style: normal;
+  font-family: cursive;
+  font-weight: 500;
+}
+
+
+#oddButton { 
   align-self: center;
   
  
   
-} */
+}
 footer {
   background-color: darkolivegreen;
   height: 129px
 }
-#meseeks {
-  align-self: center;
-  height: auto;
-  width: auto;
+
+footer {
+  background-color: darkolivegreen;
+  height: 129px;
+  align-content: center;
 }
+
+#pun {
+  align-content: center;
+  display: flex;
+}
+footer img {
+  height: 200px;
+  width: 400px;
+  
+
+
+}
+
 
 p {
   text-align: center;
