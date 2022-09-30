@@ -30,7 +30,7 @@ let maxClicksAllowed = 25; // the max user can  click.
 
 
 
-const productArray = [ 'bag.jpg',
+const productArray = ['bag.jpg',
   'banana.jpg',
   'bathroom.jpg',
   'boots.jpg',
@@ -55,108 +55,110 @@ if (productArray.indexOf(str) === -1) {
 }
 console.log(productArray);
 
-function Product(productName,imagePath){
+
+
+
+function Product(productName, imagePath) {
   this.productName = productName;
   this.imagePath = imagePath;
-  this.views=0;
-  this.clicks=0;
+  this.views = 0;
+  this.clicks = 0;
+  Product.allProductsArray.push(this);
 }
+Product.allProductsArray=[];
 
 
 
 
-function render(){
+function render() {
   console.log('makeItSoNumberTwo()');
-
   // finding previous values
-
-  let currentSet=[];
-  let previousSet=[];
+  let currentSet = [];
+  let previousSet = [];
   for (let i = 0; i < 3; i++) {
     let index = getRandomProductIndex();
-    while(previousSet.includes(index) ||(currentSet.includes(index))){
-      index=getRandomProductIndex();
+    while (previousSet.includes(index) || (currentSet.includes(index))) {
+      index = getRandomProductIndex();
     }
     currentSet.push(index);
   }
-  previousSet= currentSet;
-
-
+  previousSet = currentSet;
   ///getting 3 random products
   let product1 = getRandomProductIndex();
   let product2 = getRandomProductIndex();
   let product3 = getRandomProductIndex();
-  
+
   ///how to make sure they're not the same product
-  while (product1===product2 || product1===product3){
-    product1=getRandomProductIndex();
+  while (product1 === product2 || product1 === product3) {
+    product1 = getRandomProductIndex();
 
   }
-  while (product1===product2 || product2===product3){
-    product2=getRandomProductIndex();
+  while (product1 === product2 || product2 === product3) {
+    product2 = getRandomProductIndex();
 
   }
   // Image value
   image1.src = allProductsArray[currentSet[0]].imagePath;
-  image1.alt= allProductsArray[currentSet[0]].productName;
+  image1.alt = allProductsArray[currentSet[0]].productName;
   image2.src = allProductsArray[currentSet[1]].imagePath;
-  image2.alt= allProductsArray[currentSet[1]].productName;
+  image2.alt = allProductsArray[currentSet[1]].productName;
   image3.src = allProductsArray[currentSet[2]].imagePath;
-  image3.alt= allProductsArray[currentSet[2]].productName;
- 
+  image3.alt = allProductsArray[currentSet[2]].productName;
+
 
   allProductsArray[currentSet[0]].views++;
   allProductsArray[currentSet[1]].views++;
   allProductsArray[currentSet[2]].views++;
 }
 
-function showResult(){
+function showResult() {
   console.log('in renderResult()');
   let renderResult = document.getElementById('renderResult');
-  for(let i = 0; i < allProductsArray.length; i++){
+  for (let i = 0; i < allProductsArray.length; i++) {
     let product = allProductsArray[i];
     let li = document.createElement('li');
-    li.textContent= `${product.productName} had ${product.views} views and was clicked ${product.clicks} times.`;
+    li.textContent = `${product.productName} had ${product.views} views and was clicked ${product.clicks} times.`;
     renderResult.appendChild(li);
   }
 }
+
 
 
 /********************************************************************************
  * Control Logic
  */
 
-function initialize (){
+function initialize() {
   console.log('in initialize()');
   // initial references to html
-  thingContainer=document.querySelector('section');
-  oddButton=document.getElementById('oddButton');
-  image1=document.querySelector('section img:first-child');
-  image2=document.querySelector('section img:nth-child(2)');
-  image3=document.querySelector('section img:nth-child(3)');
- 
+  thingContainer = document.querySelector('section');
+  oddButton = document.getElementById('oddButton');
+  image1 = document.querySelector('section img:first-child');
+  image2 = document.querySelector('section img:nth-child(2)');
+  image3 = document.querySelector('section img:nth-child(3)');
+
   // products go here
 
-  allProductsArray=[];
-  allProductsArray.push(new Product('Bag','./img/bag.jpg'));
-  allProductsArray.push(new Product('Banana','./img/banana.jpg'));
-  allProductsArray.push(new Product('Bathroom','./img/bathroom.jpg'));
-  allProductsArray.push(new Product('Boots','./img/boots.jpg'));
-  allProductsArray.push(new Product('Breakfast','./img/breakfast.jpg'));
-  allProductsArray.push(new Product('Bubblegum','./img/bubblegum.jpg'));
-  allProductsArray.push(new Product('Chair','./img/chair.jpg'));
-  allProductsArray.push(new Product('Cthulhu','./img/cthulhu.jpg'));
-  allProductsArray.push(new Product('Dog/Duck','./img/dog-duck.jpg'));
-  allProductsArray.push(new Product('Dragon','./img/dragon.jpg'));
-  allProductsArray.push(new Product('Pen','./img/pen.jpg'));
-  allProductsArray.push(new Product('Pet-Broom','./img/pet-sweep.jpg'));
-  allProductsArray.push(new Product('Scissors','./img/scissors.jpg'));
-  allProductsArray.push(new Product('Shark','./img/shark.jpg'));
-  allProductsArray.push(new Product('Baby-Broom','./img/sweep.png'));
-  allProductsArray.push(new Product('Sleeping-Bag','./img/tauntaun.jpg'));
-  allProductsArray.push(new Product('Unicorn-Mug','./img/unicorn.jpg'));
-  allProductsArray.push(new Product('Watering-Can','./img/water-can.jpg'));
-  allProductsArray.push(new Product('Wine-Glass','./img/wine-glass.jpg'));
+  allProductsArray = [];
+  allProductsArray.push(new Product('Bag', './img/bag.jpg'));
+  allProductsArray.push(new Product('Banana', './img/banana.jpg'));
+  allProductsArray.push(new Product('Bathroom', './img/bathroom.jpg'));
+  allProductsArray.push(new Product('Boots', './img/boots.jpg'));
+  allProductsArray.push(new Product('Breakfast', './img/breakfast.jpg'));
+  allProductsArray.push(new Product('Bubblegum', './img/bubblegum.jpg'));
+  allProductsArray.push(new Product('Chair', './img/chair.jpg'));
+  allProductsArray.push(new Product('Cthulhu', './img/cthulhu.jpg'));
+  allProductsArray.push(new Product('Dog/Duck', './img/dog-duck.jpg'));
+  allProductsArray.push(new Product('Dragon', './img/dragon.jpg'));
+  allProductsArray.push(new Product('Pen', './img/pen.jpg'));
+  allProductsArray.push(new Product('Pet-Broom', './img/pet-sweep.jpg'));
+  allProductsArray.push(new Product('Scissors', './img/scissors.jpg'));
+  allProductsArray.push(new Product('Shark', './img/shark.jpg'));
+  allProductsArray.push(new Product('Baby-Broom', './img/sweep.png'));
+  allProductsArray.push(new Product('Sleeping-Bag', './img/tauntaun.jpg'));
+  allProductsArray.push(new Product('Unicorn-Mug', './img/unicorn.jpg'));
+  allProductsArray.push(new Product('Watering-Can', './img/water-can.jpg'));
+  allProductsArray.push(new Product('Wine-Glass', './img/wine-glass.jpg'));
 
   //setting up event handlers
   thingContainer.addEventListener('click', handleProductClick);
@@ -171,53 +173,95 @@ function initialize (){
 
 
 
-function handleProductClick(evt){
+function handleProductClick(evt) {
   console.log('in handleProductClick()');
 
 
   // click product test //
-
-  if (evt.target === thingContainer){
-    
+  if (evt.target === thingContainer) {
     alert('Please click on an image.');
   }
 
-  click++;
-  // loop through random products
-  // see if any match event target
-  let clickProduct= evt.target.alt;
-  for(let i=0; i< allProductsArray.length; i++){
-    if (clickProduct=== allProductsArray[i].productName){
-      allProductsArray[i].clicks++;
-      break;
+    click++;
+    // loop through random products
+    // see if any match event target
+    let clickProduct = evt.target.alt;
+    for (let i = 0; i < Product.allProductsArray.length; i++) {
+      if (clickProduct === allProductsArray[i].productName) {
+        allProductsArray[i].clicks++;
+        break;
+      }
     }
-  }
-  //checking to see if maximimum clicks have been reached(25)
+    //checking to see if maximimum clicks have been reached(25)
 
-  if (click=== maxClicksAllowed){
- 
-    thingContainer.removeEventListener('click',handleProductClick);
-    oddButton.addEventListener('click', showResult);
-    oddButton.className= 'clicks-allowed';
-    // thingContainer.className = 'no-voting';
+    if (click === maxClicksAllowed) {
+      thingContainer.removeEventListener('click', handleProductClick);
+      oddButton.addEventListener('click', showResult);
+      oddButton.className = 'clicks-allowed';
+      thingContainer.className = 'no-voting';
 
-    // showResult();
+      showResult();
+      renderChart();
+    } else {
+      render();
+    }
 
-
-  }
-   render();
-}   
-
-
-
+}
 /**
  * Returns random index from allProductsArray
  *
  */
-function getRandomProductIndex(){
-  return Math.floor(Math.random()* allProductsArray.length);
+function getRandomProductIndex() {
+  return Math.floor(Math.random() * allProductsArray.length);
+}
 
 
+function renderChart() {
+  let productsLike = [];
+  let productsView = [];
+
+  for (let i = 0; i < Product.allProductsArray.length; i++) {
+    productsLike.push(Product.allProductsArray[i].clicks);
+    productsView.push(Product.allProductsArray[i].views);
+
+  }
+
+  /* refer to Chart.js > Chart Types > Bar Chart: 
+  https://www.chartjs.org/docs/latest/charts/bar.html 
+  and refer to Chart.js > Getting Started > Getting Started:
+  https://www.chartjs.org/docs/latest/getting-started/ */
+
+
+
+  const data = {
+    labels: productArray,
+    datasets: [{
+      label: 'prolikes',
+      data: productsLike,
+      backgroundColor: ['blue']
+
+    }, {
+      label: 'proviews',
+      data: productsLike,
+      backgroundColor: ['green']
+    },]
+  };
+
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    },
+  };
+  let canvasChart = document.getElementById('myChart');
+  const myChart = new Chart(canvasChart, config);
+  // }
 }
 
 //create.variable to get element by id, element target is myChart,
