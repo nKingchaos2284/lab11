@@ -65,7 +65,7 @@ function Product(productName, imagePath) {
   this.clicks = 0;
   Product.allProductsArray.push(this);
 }
-Product.allProductsArray=[];
+Product.allProductsArray = [];
 
 
 
@@ -120,6 +120,13 @@ function showResult() {
     li.textContent = `${product.productName} had ${product.views} views and was clicked ${product.clicks} times.`;
     renderResult.appendChild(li);
   }
+
+  product.clicks = JSON.stringify(renderResult);
+  console.log('this is what is in local storage', product.clicks)
+
+
+  product.views = JSON.stringify(showResult);
+  console.log('this is what is in local storage', product.views)
 }
 
 
@@ -182,29 +189,32 @@ function handleProductClick(evt) {
     alert('Please click on an image.');
   }
 
-    click++;
-    // loop through random products
-    // see if any match event target
-    let clickProduct = evt.target.alt;
-    for (let i = 0; i < Product.allProductsArray.length; i++) {
-      if (clickProduct === allProductsArray[i].productName) {
-        allProductsArray[i].clicks++;
-        break;
-      }
-    }
-    //checking to see if maximimum clicks have been reached(25)
+  click++;
+  // loop through random products
 
-    if (click === maxClicksAllowed) {
-      thingContainer.removeEventListener('click', handleProductClick);
-      oddButton.addEventListener('click', showResult);
-      oddButton.className = 'clicks-allowed';
-      thingContainer.className = 'no-voting';
 
-      showResult();
-      renderChart();
-    } else {
-      render();
+  // see if any match event target
+  let clickProduct = evt.target.alt;
+  for (let i = 0; i < Product.allProductsArray.length; i++) {
+    if (clickProduct === allProductsArray[i].productName) {
+      allProductsArray[i].clicks++;
+      break;
     }
+  }
+  //checking to see if maximimum clicks have been reached(25)
+
+  if (click === maxClicksAllowed) {
+    thingContainer.removeEventListener('click', handleProductClick);
+    oddButton.addEventListener('click', showResult);
+    oddButton.className = 'clicks-allowed';
+    thingContainer.className = 'no-voting';
+
+
+    showResult();
+    renderChart();
+  } else {
+    render();
+  }
 
 }
 /**
@@ -223,6 +233,7 @@ function renderChart() {
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     productsLike.push(Product.allProductsArray[i].clicks);
     productsView.push(Product.allProductsArray[i].views);
+
 
   }
 
@@ -261,8 +272,6 @@ function renderChart() {
   };
   let canvasChart = document.getElementById('myChart');
   const myChart = new Chart(canvasChart, config);
-  // }
+
 }
 
-//create.variable to get element by id, element target is myChart,
-//then create chart, create variable == new Chart, var inside .this, pass in  variable that used for element by id //first and then the product array total
